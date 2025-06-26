@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Home</title>
+</head>
+<body>
+<style>
+body 
+{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+}
+.container 
+{
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar 
+{
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 30px 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+.sidebar h2 
+{
+  margin-bottom: 30px;
+}
+.sidebar nav a 
+{
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+.sidebar nav a:hover 
+{
+  background-color: #34495e;
+}
+.sidebar .logout 
+{
+  color: #e74c3c;
+}
+.content 
+{
+  flex: 1;
+  padding: 40px;
+}
+.content-header h1 
+{
+    margin-top: 0;
+    color: #2c3e50;
+}
+</style>
+    <div class = "container">
+        <aside class = "sidebar">
+            <h2>📝 MyBlog </h2>
+            <nav>
+                <a href = "file:///run/user/1001/doc/873479f3/dashboard.html">Dashboard</a>
+                <a href = "/create">Create Post</a>
+                <a href = "/my-posts">My Posts</a>
+                <a href = "/profile">Profile</a>
+                <a href = "/logout" class = "logout">Logout</a>
+            </nav>
+        </aside>
+        <main class = "content">
+            <header class ="content-header">
+                <h1 th:text = "'Welcome, ' + ${username} + '!'">Welcome!</h1>
+            </header>
+            <sectopm th:replace = "::content"></section>
+        </main>
+    </div>
+</body>
+</html>
