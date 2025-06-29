@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Profile</title>
+  <style>
+    body {
+      background: #111;
+      color: #b6ff00;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    form {
+      background: #181818;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px #0f0a, 0 1.5px 0 #2ecc40 inset;
+      padding: 2.5rem 3rem;
+      min-width: 340px;
+      max-width: 400px;
+      border: 1.5px solid #2ecc40;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    h2 {
+      color: #2ecc40;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    label {
+      color: #b6ff00;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      background: #222;
+      color: #b6ff00;
+      border: 1.5px solid #2ecc40;
+      border-radius: 7px;
+      padding: 0.7rem 1rem;
+      font-size: 1.05rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    input:focus {
+      border-color: #b6ff00;
+    }
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    button, a.cancel-link {
+      padding: 0.7rem 2.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.05rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    button {
+      background: linear-gradient(90deg, #2ecc40 60%, #b6ff00 100%);
+      color: #111;
+      box-shadow: 0 2px 8px #2ecc4060;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #b6ff00 60%, #2ecc40 100%);
+      color: #181818;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #2ecc4080;
+    }
+    a.cancel-link {
+      background: none;
+      color: #b6ff00;
+      border: 1.5px solid #2ecc40;
+      text-align: center;
+      box-shadow: none;
+    }
+    a.cancel-link:hover {
+      background: #222;
+      color: #2ecc40;
+      border-color: #b6ff00;
+    }
+    .form-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    .form-group {
+     display: flex; 
+     flex-direction: column;
+     gap: 0.3rem;
+    }
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+}
+  </style>
+</head>
+<body>
+  <form th:action="@{/edit-profile}" method="post">
+    <h2>Edit Profile</h2>
+    <div class="form-fields">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" th:value="${username}" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" th:value="${email}" required>
+      </div>
+      <div class="form-group">
+        <label for="password">New Password</label>
+        <input type="password" id="password" name="password" placeholder="Leave blank to keep current">
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit">Save</button>
+      <a href="/profile" class="cancel-link">Cancel</a>
+    </div>
+  </form>
+</body>
+</html>

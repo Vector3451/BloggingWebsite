@@ -1,9 +1,65 @@
-  
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
+  <style>
+    body {
+      background: #111;
+      color: #b6ff00;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    div[th\:fragment="content"] {
+      background: #181818;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px #0f0a, 0 1.5px 0 #2ecc40 inset;
+      padding: 2.5rem 3rem;
+      min-width: 340px;
+      max-width: 400px;
+      border: 1.5px solid #2ecc40;
+    }
+    h2 {
+      color: #2ecc40;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    p {
+      margin: 1.1rem 0;
+      font-size: 1.08rem;
+      color: #b6ff00;
+    }
+    strong {
+      color: #2ecc40;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 1.8rem;
+      padding: 0.7rem 2.2rem;
+      background: linear-gradient(90deg, #2ecc40 60%, #b6ff00 100%);
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.05rem;
+      box-shadow: 0 2px 8px #2ecc4060;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    a:hover {
+      background: linear-gradient(90deg, #b6ff00 60%, #2ecc40 100%);
+      color: #181818;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #2ecc4080;
+    }
+  </style>
 </head>
 <body>
   <div th:fragment="content">
